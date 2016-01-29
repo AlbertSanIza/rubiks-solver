@@ -39,6 +39,8 @@
 /* r View */
 .r-plane {
   position: absolute;
+  left: 60%;
+  top: calc(50% - 12vw);
   width: 32vw;
   height: 24vw;
 }
