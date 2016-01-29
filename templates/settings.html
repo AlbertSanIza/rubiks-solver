@@ -6,6 +6,9 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    Hello World to Settings
+    <form>
+      <ion-toggle ng-model="Data.allowSerial" toggle-class="toggle-balanced">Allow serial connection</ion-toggle>
+      <ion-toggle ng-model="Data.allowSocket" toggle-class="toggle-balanced">Allow socket connection</ion-toggle>
+    </form>
   </ion-content>
 </ion-modal-view>
