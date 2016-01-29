@@ -1,6 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('MainCtrl', function($scope, $element, $ionicModal) {
+  $scope.Global = new Object();
   $ionicModal.fromTemplateUrl('templates/settings.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -17,7 +18,6 @@ angular.module('starter.controllers', [])
   main_container = $element[0];
   function init() {
     cubeJS = new Cube();
-    //Cube.initSolver();
     cubeGL_container = main_container.querySelector('.r-cube');
     cubeGL_string_container = main_container.querySelector('.r-string');
     var useLockedControls = true, controls = useLockedControls ? ERNO.Locked : ERNO.Freeform;
@@ -227,7 +227,7 @@ angular.module('starter.controllers', [])
       setTimeout(function() {
         Cube.initSolver();
         $scope.loadingModal.hide();
-      }, 1000);
+      }, 450);
     });
   });
 })

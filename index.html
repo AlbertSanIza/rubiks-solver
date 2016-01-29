@@ -94,6 +94,8 @@
 		</div>
 		<div class="bottomControls">
 			<button class="button button-clear button-royal" ng-click="openSettingsModal()">Settings</button>
+			<button class="button button-clear button-stable" ng-disabled="!Global.allowSerial || Global.allowSocket" ng-click="">Serial</button>
+			<button class="button button-clear button-stable" ng-disabled="!Global.allowSocket || Global.allowSerial" ng-click="">Socket</button>
 			<button class="button button-clear button-positive" ng-click="shuffle()">Shuffle</button>
 			<button class="button button-clear button-balanced" ng-click="solve()">Solve</button>
 		</div>
