@@ -29,10 +29,10 @@
 /* r Cube */
 .r-cube {
   position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 70%;
-  height: 100%;
+  left: calc(0px - 30%);
+  top: calc(0px - 15%);
+  width: 120%;
+  height: 120%;
 }
 /* r Cube */
 
@@ -40,7 +40,7 @@
 .r-plane {
   position: absolute;
   left: calc(60% - 3vw);
-  top: calc(50% - 12vw);
+  top: calc(45% - 12vw);
   width: 40vw;
   height: 30vw;
 }
