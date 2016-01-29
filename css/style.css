@@ -39,10 +39,10 @@
 /* r View */
 .r-plane {
   position: absolute;
-  left: 60%;
+  left: calc(60% - 3vw);
   top: calc(50% - 12vw);
-  width: 32vw;
-  height: 24vw;
+  width: 40vw;
+  height: 30vw;
 }
 .r-piece {
   position: absolute;
