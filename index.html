@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+	<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+	<link href="lib/cuber/cube.css" rel="stylesheet">
+	<link href="lib/cuber/base.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="lib/cubejs/cube.js"></script>
+	<script src="lib/cubejs/solve.js"></script>
+	<script src="lib/cuber/cuber.min.js"></script>
+	<script src="lib/cuber/locked.js"></script>
+	<script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/services.js"></script>
+</head>
+<body ng-app="starter" ng-controller="MainCtrl" class="graydient">
+	<ion-content scroll="false" padding="false">
+		<div class="cube-space">
+			<div class="r-string"></div>
+			<div class="r-cube"></div>
+			<div class="r-plane">
+				<div class="r-piece r-up">
+					<div id="r-0" class="r-sticker O"></div>
+					<div id="r-1" class="r-sticker O"></div>
+					<div id="r-2" class="r-sticker O"></div>
+					<div id="r-3" class="r-sticker O"></div>
+					<div id="r-4" class="r-sticker O"></div>
+					<div id="r-5" class="r-sticker O"></div>
+					<div id="r-6" class="r-sticker O"></div>
+					<div id="r-7" class="r-sticker O"></div>
+					<div id="r-8" class="r-sticker O"></div>
+				</div>
+				<div class="r-piece r-right">
+					<div id="r-9" class="r-sticker B"></div>
+					<div id="r-10" class="r-sticker B"></div>
+					<div id="r-11" class="r-sticker B"></div>
+					<div id="r-12" class="r-sticker B"></div>
+					<div id="r-13" class="r-sticker B"></div>
+					<div id="r-14" class="r-sticker B"></div>
+					<div id="r-15" class="r-sticker B"></div>
+					<div id="r-16" class="r-sticker B"></div>
+					<div id="r-17" class="r-sticker B"></div>
+				</div>
+				<div class="r-piece r-front">
+					<div id="r-18" class="r-sticker W"></div>
+					<div id="r-19" class="r-sticker W"></div>
+					<div id="r-20" class="r-sticker W"></div>
+					<div id="r-21" class="r-sticker W"></div>
+					<div id="r-22" class="r-sticker W"></div>
+					<div id="r-23" class="r-sticker W"></div>
+					<div id="r-24" class="r-sticker W"></div>
+					<div id="r-25" class="r-sticker W"></div>
+					<div id="r-26" class="r-sticker W"></div>
+				</div>
+				<div class="r-piece r-down">
+					<div id="r-27" class="r-sticker R"></div>
+					<div id="r-28" class="r-sticker R"></div>
+					<div id="r-29" class="r-sticker R"></div>
+					<div id="r-30" class="r-sticker R"></div>
+					<div id="r-31" class="r-sticker R"></div>
+					<div id="r-32" class="r-sticker R"></div>
+					<div id="r-33" class="r-sticker R"></div>
+					<div id="r-34" class="r-sticker R"></div>
+					<div id="r-35" class="r-sticker R"></div>
+				</div>
+				<div class="r-piece r-left">
+					<div id="r-36" class="r-sticker G"></div>
+					<div id="r-37" class="r-sticker G"></div>
+					<div id="r-38" class="r-sticker G"></div>
+					<div id="r-39" class="r-sticker G"></div>
+					<div id="r-40" class="r-sticker G"></div>
+					<div id="r-41" class="r-sticker G"></div>
+					<div id="r-42" class="r-sticker G"></div>
+					<div id="r-43" class="r-sticker G"></div>
+					<div id="r-44" class="r-sticker G"></div>
+				</div>
+				<div class="r-piece r-back">
+					<div id="r-45" class="r-sticker Y"></div>
+					<div id="r-46" class="r-sticker Y"></div>
+					<div id="r-47" class="r-sticker Y"></div>
+					<div id="r-48" class="r-sticker Y"></div>
+					<div id="r-49" class="r-sticker Y"></div>
+					<div id="r-50" class="r-sticker Y"></div>
+					<div id="r-51" class="r-sticker Y"></div>
+					<div id="r-52" class="r-sticker Y"></div>
+					<div id="r-53" class="r-sticker Y"></div>
+				</div>
+			</div>
+		</div>
+		<div class="bottomControls">
+			<button class="button button-clear button-royal" ng-click="openSettingsModal()">Settings</button>
+			<button class="button button-clear button-positive" ng-click="shuffle()">Shuffle</button>
+			<button class="button button-clear button-balanced" ng-click="solve()">Solve</button>
+		</div>
+	</ion-content>
+</body>
+</html>
