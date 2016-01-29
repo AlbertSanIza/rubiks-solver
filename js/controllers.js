@@ -1,6 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('MainCtrl', function($scope, $element, $ionicModal) {
+  $scope.Data = new Object();
   $ionicModal.fromTemplateUrl('templates/settings.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -227,7 +228,7 @@ angular.module('starter.controllers', [])
       setTimeout(function() {
         Cube.initSolver();
         $scope.loadingModal.hide();
-      }, 1000);
+      }, 450);
     });
   });
 })
