@@ -7,11 +7,11 @@
   </ion-header-bar>
   <ion-content>
     <form>
-      <ion-toggle ng-model="Data.allowSerial" toggle-class="toggle-balanced">Allow serial connection</ion-toggle>
-      <ion-toggle ng-model="Data.allowSocket" toggle-class="toggle-balanced">Allow socket connection</ion-toggle>
+      <ion-toggle ng-model="Global.allowSerial" toggle-class="toggle-balanced">Allow serial connection</ion-toggle>
+      <ion-toggle ng-model="Global.allowSocket" toggle-class="toggle-balanced">Allow socket connection</ion-toggle>
       <div class="item range range-balanced">
         <i class="icon ion-ios-speedometer-outline"></i>
-        <input type="range" name="volume" min="0.1" max="3" step="0.1" ng-model="Data.cubeSpeed">
+        <input type="range" name="volume" min="0.1" max="3" step="0.1" ng-model="Global.cubeSpeed">
         <i class="icon ion-cube"></i>
       </div>
     </form>
