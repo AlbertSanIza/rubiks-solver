@@ -2,6 +2,10 @@ angular.module('starter.controllers', [])
 
 .controller('MainCtrl', function($scope, $element, $ionicModal) {
   $scope.Global = new Object();
+  $scope.Global.cubeSpeed = 500;
+  $scope.$watch('Global.cubeSpeed', function() {
+    cubeGL.twistDuration = $scope.Global.cubeSpeed;
+  }, true);
   $ionicModal.fromTemplateUrl('templates/settings.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -39,7 +43,6 @@ angular.module('starter.controllers', [])
     cubeGL.undo();
   };
   $scope.shuffle = function() {
-    cubeGL.twistDuration = 90;
     cubeGL.shuffle(10);
   };
   $scope.solve = function() {
@@ -60,7 +63,6 @@ angular.module('starter.controllers', [])
       for (var i = 0; i < solutionJS.length; i++) {
         solutionGL = solutionGL + equivalent_movement(solutionJS[i]);
       };
-      cubeGL.twistDuration = 90;
       cubeGL.twist(solutionGL);
     }
   };
