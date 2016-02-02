@@ -2,10 +2,8 @@ angular.module('starter.controllers', [])
 
 .controller('MainCtrl', function($scope, $element, $ionicModal) {
   $scope.Global = new Object();
-  $scope.Global.cubeSpeed = 500;
-  $scope.$watch('Global.cubeSpeed', function() {
-    cubeGL.twistDuration = $scope.Global.cubeSpeed;
-  }, true);
+  $scope.Global.cubeSpeed = 90;
+  $scope.Global.Camera = false;
   $ionicModal.fromTemplateUrl('templates/settings.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -38,6 +36,9 @@ angular.module('starter.controllers', [])
   };
   init();
   $scope.test = function() {
+  };
+  $scope.showCamera = function() {
+    $scope.Global.Camera = !$scope.Global.Camera;
   };
   $scope.undo = function() {
     cubeGL.undo();
@@ -232,4 +233,7 @@ angular.module('starter.controllers', [])
       }, 450);
     });
   });
+  $scope.$watch('Global.cubeSpeed', function() {
+    cubeGL.twistDuration = $scope.Global.cubeSpeed;
+  }, true);
 })

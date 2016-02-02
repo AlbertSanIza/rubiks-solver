@@ -9,6 +9,8 @@
 	<link href="lib/cuber/base.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
   <script src="lib/ionic/js/ionic.bundle.js"></script>
+	<script src="lib/angular/modules/ng-camera/webcam.min.js"></script>
+	<script src="lib/angular/modules/ng-camera/ng-camera.js"></script>
 	<script src="lib/cubejs/cube.js"></script>
 	<script src="lib/cubejs/solve.js"></script>
 	<script src="lib/cuber/cuber.min.js"></script>
@@ -20,6 +22,11 @@
 </head>
 <body ng-app="starter" ng-controller="MainCtrl" class="graydient">
 	<ion-content scroll="false" padding="false">
+		<div ng-switch="Global.Camera">
+			<div class="camera-space" ng-switch-when="true">
+				<ng-camera viewer-height="675" viewer-width="900" image-format="jpeg" jpeg-quality="100" snapshot="vm.picture"></ng-camera>
+			</div>
+		</div>
 		<div class="cube-space">
 			<div class="r-string"></div>
 			<div class="r-cube"></div>
@@ -94,6 +101,7 @@
 		</div>
 		<div class="bottomControls">
 			<button class="button button-clear button-royal" ng-click="openSettingsModal()">Settings</button>
+			<button class="button button-clear button-stable" ng-click="showCamera()">Camera</button>
 			<button class="button button-clear button-stable" ng-disabled="!Global.allowSerial || Global.allowSocket" ng-click="">Serial</button>
 			<button class="button button-clear button-stable" ng-disabled="!Global.allowSocket || Global.allowSerial" ng-click="">Socket</button>
 			<button class="button button-clear button-positive" ng-click="shuffle()">Shuffle</button>
