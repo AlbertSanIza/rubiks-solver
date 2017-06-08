@@ -1,6 +1,6 @@
 {
-  "name": "My Ionic App",
-  "short_name": "My Ionic App",
+  "name": "Rubiks Solver",
+  "short_name": "Rubiks Solver",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
