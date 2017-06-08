@@ -1,1 +1,7 @@
-angular.module('starter',['ionic', 'starter.controllers', 'starter.directives', 'starter.services', 'camera'])
+angular.module('starter',[
+  'ionic',
+  'starter.controllers',
+  'starter.directives',
+  'starter.services',
+  'camera'
+])
