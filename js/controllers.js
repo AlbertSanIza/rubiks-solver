@@ -1,5 +1,6 @@
+//------------------------------------------------------------------------------
 angular.module('starter.controllers', [])
-
+//------------------------------------------------------------------------------
 .controller('MainCtrl', function($scope, $element, $ionicModal) {
   $scope.Global = new Object();
   $scope.Global.cubeSpeed = 90;
@@ -237,3 +238,4 @@ angular.module('starter.controllers', [])
     cubeGL.twistDuration = $scope.Global.cubeSpeed;
   }, true);
 })
+//------------------------------------------------------------------------------
