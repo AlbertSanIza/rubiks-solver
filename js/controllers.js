@@ -66,7 +66,6 @@ angular.module('starter.controllers', [])
       }
     }
     cubeJS = Cube.fromString(cube_string_faces)
-    console.log(cubeJS);
   }
 })
 //-----------------------------------------------------------------------------
