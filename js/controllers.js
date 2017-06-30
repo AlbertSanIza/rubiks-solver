@@ -9,7 +9,8 @@ angular.module('starter.controllers', [])
     cubeGL = new ERNO.Cube({
       controls: controls,
       keyboardControlsEnabled: true,
-      mouseControlsEnabled: true
+      mouseControlsEnabled: true,
+      twistDuration: 100
     })
     cubeContainer = document.getElementById('container')
     cubeContainer.appendChild(cubeGL.domElement)
