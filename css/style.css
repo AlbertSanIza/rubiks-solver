@@ -1,1 +1,8 @@
-/* Empty. Add your own CSS if you like */
+.bottomControls {
+  position: absolute;
+  text-align: center;
+  font-size: 2vw;
+  height: 55px;
+  bottom: 0px;
+  width: 100%;
+}

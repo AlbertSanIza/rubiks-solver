@@ -14,5 +14,11 @@ angular.module('starter.controllers', [])
     cubeContainer.appendChild(cubeGL.domElement)
   };
   init();
+  $scope.shuffle = () => {
+    console.log("shuffle");
+  };
+  $scope.solve = () => {
+    console.log("solve");
+  };
 })
 //-----------------------------------------------------------------------------
