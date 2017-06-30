@@ -2,8 +2,9 @@
 angular.module('starter.controllers', [])
 //-----------------------------------------------------------------------------
 .controller('mainCtrl', function($scope) {
-  var cubeGL, cubeContainer
+  var cubeJS, cubeGL, cubeContainer
   init = () => {
+    cubeJS = new Cube()
     var useLockedControls = true, controls = useLockedControls ? ERNO.Locked : ERNO.Freeform
     cubeGL = new ERNO.Cube({
       controls: controls,
