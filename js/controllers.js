@@ -16,10 +16,10 @@ angular.module('starter.controllers', [])
   }
   init()
   $scope.shuffle = () => {
-    cubeGL.shuffle(10);
-  };
+    cubeGL.shuffle(10)
+  }
   $scope.solve = () => {
-    console.log("solve");
-  };
+    console.log("solve")
+  }
 })
 //-----------------------------------------------------------------------------
