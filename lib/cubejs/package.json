@@ -1,0 +1,53 @@
+{
+  "name": "cubejs",
+  "version": "1.0.2",
+  "description": "JavaScript library for modeling and solving the 3x3x3 Rubik's Cube",
+  "author": {
+    "name": "akheron",
+    "url": "http://www.digip.org/about/"
+  },
+  "maintainers": [
+    {
+      "name": "ldez",
+      "url": "https://twitter.com/ludnadez"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ldez/cubejs#readme",
+  "bugs": {
+    "url": "https://github.com/ldez/cubejs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ldez/cubejs.git"
+  },
+  "keywords": [
+    "rubik's cube",
+    "3x3",
+    "scrambler",
+    "solver"
+  ],
+  "main": "/lib/cube.js",
+  "scripts": {
+    "build": "gulp",
+    "test": "gulp test",
+    "test:auto": "gulp test:auto",
+    "demo:build": "gulp demo:build",
+    "prepublish": "gulp build"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.12.3",
+    "coffeelint": "^1.16.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.3",
+    "gulp-coffeelint": "^0.6.0",
+    "gulp-util": "^3.0.8",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.1",
+    "karma-coffee-preprocessor": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "phantomjs": "^2.1.7"
+  }
+}
