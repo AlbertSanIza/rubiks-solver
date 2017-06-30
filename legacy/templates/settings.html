@@ -1,0 +1,19 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">Settings</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeSettingsModal()">Done</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form>
+      <ion-toggle ng-model="Global.allowSerial" toggle-class="toggle-balanced">Allow serial connection</ion-toggle>
+      <ion-toggle ng-model="Global.allowSocket" toggle-class="toggle-balanced">Allow socket connection</ion-toggle>
+      <div class="item range range-balanced">
+        <i class="icon ion-ios-speedometer-outline"></i>
+        <input type="range" name="volume" min="10" max="500" step="10" ng-model="Global.cubeSpeed">
+        <i class="icon ion-cube"></i>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

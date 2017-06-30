@@ -1,15 +1,11 @@
 {
-  "name": "Rubiks-Solver",
-  "description": "Rubiks-Solver",
-  "version": "0.0.1",
-  "manifest_version": 2,
-  "app": {
-    "background": {
-      "scripts": ["js/background.js"]
-    }
-  },
-  "icons": {
-    "16": "icons/icon-16.png",
-    "128": "icons/icon-128.png"
-  }
+  "name": "Rubiks Solver",
+  "short_name": "Rubiks Solver",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
 }

@@ -1,1 +1,6 @@
-angular.module('starter',['ionic', 'starter.controllers', 'starter.directives', 'starter.services'])
+//------------------------------------------------------------------------------
+angular.module('starter', [
+  'ionic',
+  'starter.controllers'
+])
+//------------------------------------------------------------------------------
