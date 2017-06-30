@@ -19,7 +19,6 @@ angular.module('starter.controllers', [])
     cubeGL.shuffle(10)
   }
   $scope.solve = () => {
-    console.log("solve")
   }
 })
 //-----------------------------------------------------------------------------
