@@ -6,3 +6,9 @@
   bottom: 0px;
   width: 100%;
 }
+.bottomTex {
+  position: absolute;
+  text-align: center;
+  bottom: 55px;
+  width: 100%;
+}

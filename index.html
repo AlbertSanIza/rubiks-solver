@@ -24,7 +24,9 @@
 <body ng-app="starter" ng-controller="mainCtrl" class="graydient">
   <ion-content scroll="false" padding="false">
     <div id="container"></div>
+    <div class="bottomTex">{{solutionJS}}</div>
     <div class="bottomControls">
+      <button class="button button-clear button-royal" ng-click="openSettingsModal()">Settings</button>
 			<button class="button button-clear button-positive" ng-click="shuffle()">Shuffle</button>
 			<button class="button button-clear button-balanced" ng-click="solve()">Solve</button>
 		</div>
