@@ -1,8 +1,13 @@
 //-----------------------------------------------------------------------------
 angular.module('starter.controllers', [])
 //-----------------------------------------------------------------------------
-.controller('mainCtrl', function($scope) {
+.controller('mainCtrl', function($scope, $timeout, $ionicLoading) {
   var cubeJS, cubeGL, cubeContainer
+  $ionicLoading.show({template: 'Loading...', duration: 6000}).then(() => {
+    $timeout(() => {
+      Cube.initSolver()
+    }, 1000)
+  })
   init = () => {
     cubeJS = new Cube()
     var useLockedControls = true, controls = useLockedControls ? ERNO.Locked : ERNO.Freeform
