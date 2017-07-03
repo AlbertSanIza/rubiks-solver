@@ -31,6 +31,14 @@ angular.module('starter.controllers', [])
       updateCubeJS()
       var solutionJS = cubeJS.solve()
       $scope.solutionJS = solutionJS
+      solutionJS = solutionJS.split(" ")
+      var solutionGL = ""
+      for (i = 0; i < solutionJS.length; i++) {
+        solutionGL += equivalentMovement(solutionJS[i])
+      }
+      console.log(solutionGL)
+      $scope.solutionGL = solutionGL
+      cubeGL.twist(solutionGL)
     }
   }
   $ionicModal.fromTemplateUrl('modal/settings.html', {scope: $scope, animation: 'slide-in-up'}).then(modal => {
@@ -44,29 +52,29 @@ angular.module('starter.controllers', [])
   }
   updateCubeJS = () => {
     var read = [8, 7, 6, 5, 4, 3, 2, 1, 0]
-    var cube_string_color = ""
-    var cube_string_faces = ""
+    var cubeStringColor = ""
+    var cubeStringFaces = ""
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.up.cubelets[read[i]].up.color.initial
+      cubeStringColor += cubeGL.up.cubelets[read[i]].up.color.initial
     }
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.right.cubelets[read[i]].right.color.initial
+      cubeStringColor += cubeGL.right.cubelets[read[i]].right.color.initial
     }
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.front.cubelets[read[i]].front.color.initial
+      cubeStringColor += cubeGL.front.cubelets[read[i]].front.color.initial
     }
     read = [2, 5, 8, 1, 4, 7, 0, 3, 6]
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.down.cubelets[read[i]].down.color.initial
+      cubeStringColor += cubeGL.down.cubelets[read[i]].down.color.initial
     }
     read = [6, 3, 0, 7, 4, 1, 8, 5, 2]
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.left.cubelets[read[i]].left.color.initial
+      cubeStringColor += cubeGL.left.cubelets[read[i]].left.color.initial
     }
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.back.cubelets[read[i]].back.color.initial
+      cubeStringColor += cubeGL.back.cubelets[read[i]].back.color.initial
     }
-    var cube_origin_colors = [
+    var cubeOriginColors = [
       {pos: "U", color: cubeGL.up.cubelets[4].up.color.initial},
       {pos: "R", color: cubeGL.right.cubelets[4].right.color.initial},
       {pos: "F", color: cubeGL.front.cubelets[4].front.color.initial},
@@ -74,15 +82,74 @@ angular.module('starter.controllers', [])
       {pos: "L", color: cubeGL.left.cubelets[4].left.color.initial},
       {pos: "B", color: cubeGL.back.cubelets[4].back.color.initial}
     ]
-    for (var i = 0; i < cube_string_color.length; i++) {
-      for (var j = 0; j < cube_origin_colors.length; j++) {
-        if(cube_string_color[i] == cube_origin_colors[j].color) {
-          cube_string_faces += cube_origin_colors[j].pos
+    for (var i = 0; i < cubeStringColor.length; i++) {
+      for (var j = 0; j < cubeOriginColors.length; j++) {
+        if(cubeStringColor[i] == cubeOriginColors[j].color) {
+          cubeStringFaces += cubeOriginColors[j].pos
           break
         }
       }
     }
-    cubeJS = Cube.fromString(cube_string_faces)
+    cubeJS = Cube.fromString(cubeStringFaces)
+  }
+  function equivalentMovement(movement) {
+    var returnValue = ""
+    switch (movement) {
+      case "U":
+      returnValue = "U"
+      break
+      case "U2":
+      returnValue = "UU"
+      break
+      case "U'":
+      returnValue = "u"
+      break
+      case "R":
+      returnValue = "R"
+      break
+      case "R2":
+      returnValue = "RR"
+      break
+      case "R'":
+      returnValue = "r"
+      break
+      case "B":
+      returnValue = "B"
+      break
+      case "B2":
+      returnValue = "BB"
+      break
+      case "B'":
+      returnValue = "b"
+      break
+      case "D":
+      returnValue = "D"
+      break
+      case "D2":
+      returnValue = "DD"
+      break
+      case "D'":
+      returnValue = "d"
+      break
+      case "L":
+      returnValue = "L"
+      break
+      case "L2":
+      returnValue = "LL"
+      break
+      case "L'":
+      returnValue = "l"
+      break
+      case "F":
+      returnValue = "F"
+      break
+      case "F2":
+      returnValue = "FF"
+      break
+      case "F'":
+      returnValue = "f"
+    }
+    return returnValue
   }
   $scope.$watch('Global.cubeSpeed', function() {
     cubeGL.twistDuration = $scope.Global.cubeSpeed
