@@ -31,27 +31,27 @@ angular.module('starter.controllers', [])
   }
   updateCubeJS = () => {
     var read = [8, 7, 6, 5, 4, 3, 2, 1, 0]
-    var cube_string_color = "";
-    var cube_string_faces = "";
+    var cube_string_color = ""
+    var cube_string_faces = ""
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.up.cubelets[read[i]].up.color.initial;
+      cube_string_color += cubeGL.up.cubelets[read[i]].up.color.initial
     }
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.right.cubelets[read[i]].right.color.initial;
+      cube_string_color += cubeGL.right.cubelets[read[i]].right.color.initial
     }
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.front.cubelets[read[i]].front.color.initial;
+      cube_string_color += cubeGL.front.cubelets[read[i]].front.color.initial
     }
     read = [2, 5, 8, 1, 4, 7, 0, 3, 6]
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.down.cubelets[read[i]].down.color.initial;
+      cube_string_color += cubeGL.down.cubelets[read[i]].down.color.initial
     }
     read = [6, 3, 0, 7, 4, 1, 8, 5, 2]
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.left.cubelets[read[i]].left.color.initial;
+      cube_string_color += cubeGL.left.cubelets[read[i]].left.color.initial
     }
     for (var i = 0; i <= 8; i++) {
-      cube_string_color += cubeGL.back.cubelets[read[i]].back.color.initial;
+      cube_string_color += cubeGL.back.cubelets[read[i]].back.color.initial
     }
     var cube_origin_colors = [
       {pos: "U", color: cubeGL.up.cubelets[4].up.color.initial},
