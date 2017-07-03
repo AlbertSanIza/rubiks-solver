@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
       controls: controls,
       keyboardControlsEnabled: true,
       mouseControlsEnabled: true,
-      twistDuration: 100
+      twistDuration: 0
     })
     cubeContainer = document.getElementById('container')
     cubeContainer.appendChild(cubeGL.domElement)
