@@ -36,7 +36,6 @@ angular.module('starter.controllers', [])
       for (i = 0; i < solutionJS.length; i++) {
         solutionGL += equivalentMovement(solutionJS[i])
       }
-      console.log(solutionGL)
       $scope.solutionGL = solutionGL
       cubeGL.twist(solutionGL)
     }
