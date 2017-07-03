@@ -1,0 +1,15 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">Settings</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeSettingsModal()">Done</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="item range range-balanced">
+      <i class="icon ion-ios-speedometer-outline"></i>
+      <input type="range" name="volume" min="0" max="500" step="25" ng-model="Global.cubeSpeed">
+      <i class="icon ion-cube"></i>
+    </div>
+  </ion-content>
+</ion-modal-view>

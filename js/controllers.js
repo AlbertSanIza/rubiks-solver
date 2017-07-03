@@ -1,7 +1,9 @@
 //-----------------------------------------------------------------------------
 angular.module('starter.controllers', [])
 //-----------------------------------------------------------------------------
-.controller('mainCtrl', function($scope, $timeout, $ionicLoading) {
+.controller('mainCtrl', function($scope, $timeout, $ionicModal, $ionicLoading) {
+  $scope.Global = new Object()
+  $scope.Global.cubeSpeed = 90
   var cubeJS, cubeGL, cubeContainer
   $ionicLoading.show({template: 'Loading...', duration: 6000}).then(() => {
     $timeout(() => {
@@ -14,8 +16,7 @@ angular.module('starter.controllers', [])
     cubeGL = new ERNO.Cube({
       controls: controls,
       keyboardControlsEnabled: true,
-      mouseControlsEnabled: true,
-      twistDuration: 0
+      mouseControlsEnabled: true
     })
     cubeContainer = document.getElementById('container')
     cubeContainer.appendChild(cubeGL.domElement)
@@ -28,6 +29,15 @@ angular.module('starter.controllers', [])
     if (!cubeGL.isSolved()) {
       updateCubeJS()
     }
+  }
+  $ionicModal.fromTemplateUrl('modal/settings.html', {scope: $scope, animation: 'slide-in-up'}).then(modal => {
+    $scope.settingsModal = modal
+  })
+  $scope.openSettingsModal = () => {
+    $scope.settingsModal.show()
+  }
+  $scope.closeSettingsModal = () => {
+    $scope.settingsModal.hide()
   }
   updateCubeJS = () => {
     var read = [8, 7, 6, 5, 4, 3, 2, 1, 0]
@@ -71,5 +81,8 @@ angular.module('starter.controllers', [])
     }
     cubeJS = Cube.fromString(cube_string_faces)
   }
+  $scope.$watch('Global.cubeSpeed', function() {
+    cubeGL.twistDuration = $scope.Global.cubeSpeed
+  }, true)
 })
 //-----------------------------------------------------------------------------
