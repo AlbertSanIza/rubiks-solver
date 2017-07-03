@@ -25,9 +25,7 @@ angular.module('starter.controllers', [])
     cubeGL.shuffle(10)
   }
   $scope.solve = () => {
-    if (cubeGL.isSolved()) {
-      console.log("The Cube is already solved...")
-    } else {
+    if (!cubeGL.isSolved()) {
       updateCubeJS()
     }
   }
