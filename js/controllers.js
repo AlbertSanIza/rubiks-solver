@@ -23,6 +23,7 @@ angular.module('starter.controllers', [])
   }
   init()
   $scope.shuffle = () => {
+    $scope.solutionJS = ""
     cubeGL.shuffle(10)
   }
   $scope.solve = () => {
