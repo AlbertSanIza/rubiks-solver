@@ -28,6 +28,8 @@ angular.module('starter.controllers', [])
   $scope.solve = () => {
     if (!cubeGL.isSolved()) {
       updateCubeJS()
+      var solutionJS = cubeJS.solve()
+      $scope.solutionJS = solutionJS
     }
   }
   $ionicModal.fromTemplateUrl('modal/settings.html', {scope: $scope, animation: 'slide-in-up'}).then(modal => {
