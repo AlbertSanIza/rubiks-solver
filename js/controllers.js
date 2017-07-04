@@ -36,10 +36,11 @@ angular.module('starter.controllers', [])
     cubeGL.shuffle(10)
   }
   $scope.solve = () => {
+    solutionJS = cubeJS.solve()
     $scope.solutionJS = solutionJS
+    solutionJS = solutionJS.split(" ")
   }
   $scope.run = () => {
-    solutionJS = solutionJS.split(" ")
     var solutionGL = ""
     for (i = 0; i < solutionJS.length; i++) {
       solutionGL += equivalentMovement(solutionJS[i])
