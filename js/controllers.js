@@ -2,13 +2,17 @@
 angular.module('starter.controllers', [])
 //-----------------------------------------------------------------------------
 .controller('mainCtrl', function($scope, $timeout, $ionicModal, $ionicLoading) {
+  $scope.showSolve = false
   $scope.Global = new Object()
-  $scope.Global.cubeSpeed = 150
-  var cubeJS, cubeGL, cubeContainer
+  $scope.Global.cubeSpeed = 0
+  var cubeJS, solutionJS, cubeGL, cubeContainer
   $ionicLoading.show({template: 'Loading...', duration: 6000}).then(() => {
     $timeout(() => {
       Cube.initSolver()
     }, 1000)
+  })
+  $ionicModal.fromTemplateUrl('modal/settings.html', {scope: $scope, animation: 'slide-in-up'}).then(modal => {
+    $scope.settingsModal = modal
   })
   init = () => {
     cubeJS = new Cube()
@@ -20,34 +24,33 @@ angular.module('starter.controllers', [])
     })
     cubeContainer = document.getElementById('container')
     cubeContainer.appendChild(cubeGL.domElement)
+    cubeGL.addEventListener("onTwistComplete", () => {
+      $timeout(() => {
+        $scope.showSolve = cubeGL.isSolved() ? false : true
+      }, 0)
+      updateCubeJS()
+    })
   }
   init()
+  $scope.settings = () => {
+    $scope.settingsModal.show()
+  }
   $scope.shuffle = () => {
     $scope.solutionJS = ""
     cubeGL.shuffle(10)
   }
   $scope.solve = () => {
-    if (!cubeGL.isSolved()) {
-      updateCubeJS()
-      var solutionJS = cubeJS.solve()
-      $scope.solutionJS = solutionJS
-      solutionJS = solutionJS.split(" ")
-      var solutionGL = ""
-      for (i = 0; i < solutionJS.length; i++) {
-        solutionGL += equivalentMovement(solutionJS[i])
-      }
-      $scope.solutionGL = solutionGL
-      cubeGL.twist(solutionGL)
+    solutionJS = cubeJS.solve()
+    $scope.solutionJS = solutionJS
+    solutionJS = solutionJS.split(" ")
+  }
+  $scope.run = () => {
+    var solutionGL = ""
+    for (i = 0; i < solutionJS.length; i++) {
+      solutionGL += equivalentMovement(solutionJS[i])
     }
-  }
-  $ionicModal.fromTemplateUrl('modal/settings.html', {scope: $scope, animation: 'slide-in-up'}).then(modal => {
-    $scope.settingsModal = modal
-  })
-  $scope.openSettingsModal = () => {
-    $scope.settingsModal.show()
-  }
-  $scope.closeSettingsModal = () => {
-    $scope.settingsModal.hide()
+    $scope.solutionGL = solutionGL
+    cubeGL.twist(solutionGL)
   }
   updateCubeJS = () => {
     var read = [8, 7, 6, 5, 4, 3, 2, 1, 0]
@@ -91,7 +94,7 @@ angular.module('starter.controllers', [])
     }
     cubeJS = Cube.fromString(cubeStringFaces)
   }
-  function equivalentMovement(movement) {
+  equivalentMovement = movement => {
     var returnValue = ""
     switch (movement) {
       case "U":
@@ -150,7 +153,7 @@ angular.module('starter.controllers', [])
     }
     return returnValue
   }
-  $scope.$watch('Global.cubeSpeed', function() {
+  $scope.$watch('Global.cubeSpeed', () => {
     cubeGL.twistDuration = $scope.Global.cubeSpeed
   }, true)
 })

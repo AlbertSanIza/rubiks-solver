@@ -26,9 +26,10 @@
     <div id="container"></div>
     <div class="bottomTex">{{solutionJS}}</div>
     <div class="bottomControls">
-      <button class="button button-clear button-royal" ng-click="openSettingsModal()">Settings</button>
-			<button class="button button-clear button-positive" ng-click="shuffle()">Shuffle</button>
-			<button class="button button-clear button-balanced" ng-click="solve()">Solve</button>
+      <button class="button button-clear button-assertive" ng-click="settings()">Settings</button>
+			<button class="button button-clear button-calm" ng-click="shuffle()">Shuffle {{isShuffled}}</button>
+			<button class="button button-clear button-energized" ng-if="showSolve" ng-click="solve()">Solve</button>
+      <button class="button button-clear button-balanced" ng-if="showSolve && solutionJS" ng-click="run()">Run</button>
 		</div>
   </ion-content>
 </body>

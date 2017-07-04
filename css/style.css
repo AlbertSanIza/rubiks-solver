@@ -1,3 +1,6 @@
+html, body {
+  position: fixed;
+}
 .bottomControls {
   position: absolute;
   text-align: center;
