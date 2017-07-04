@@ -2,6 +2,7 @@
 angular.module('starter.controllers', [])
 //-----------------------------------------------------------------------------
 .controller('mainCtrl', function($scope, $timeout, $ionicModal, $ionicLoading) {
+  $scope.showSolve = false
   $scope.Global = new Object()
   $scope.Global.cubeSpeed = 0
   var cubeJS, solutionJS, cubeGL, cubeContainer
@@ -24,6 +25,9 @@ angular.module('starter.controllers', [])
     cubeContainer = document.getElementById('container')
     cubeContainer.appendChild(cubeGL.domElement)
     cubeGL.addEventListener("onTwistComplete", () => {
+      $timeout(() => {
+        $scope.showSolve = cubeGL.isSolved() ? false : true
+      }, 0)
       updateCubeJS()
     })
   }
