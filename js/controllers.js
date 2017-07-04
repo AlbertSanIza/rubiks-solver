@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 .controller('mainCtrl', function($scope, $timeout, $ionicModal, $ionicLoading) {
   $scope.Global = new Object()
   $scope.Global.cubeSpeed = 150
-  var cubeJS, cubeGL, cubeContainer
+  var cubeJS, solutionJS, cubeGL, cubeContainer
   $ionicLoading.show({template: 'Loading...', duration: 6000}).then(() => {
     $timeout(() => {
       Cube.initSolver()
@@ -36,19 +36,16 @@ angular.module('starter.controllers', [])
     cubeGL.shuffle(10)
   }
   $scope.solve = () => {
-    if (!cubeGL.isSolved()) {
-      var solutionJS = cubeJS.solve()
-      $scope.solutionJS = solutionJS
-      solutionJS = solutionJS.split(" ")
-      var solutionGL = ""
-      for (i = 0; i < solutionJS.length; i++) {
-        solutionGL += equivalentMovement(solutionJS[i])
-      }
-      $scope.solutionGL = solutionGL
-      cubeGL.twist(solutionGL)
-    }
+    $scope.solutionJS = solutionJS
   }
   $scope.run = () => {
+    solutionJS = solutionJS.split(" ")
+    var solutionGL = ""
+    for (i = 0; i < solutionJS.length; i++) {
+      solutionGL += equivalentMovement(solutionJS[i])
+    }
+    $scope.solutionGL = solutionGL
+    cubeGL.twist(solutionGL)
   }
   updateCubeJS = () => {
     var read = [8, 7, 6, 5, 4, 3, 2, 1, 0]
