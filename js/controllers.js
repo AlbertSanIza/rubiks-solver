@@ -91,7 +91,7 @@ angular.module('starter.controllers', [])
     }
     cubeJS = Cube.fromString(cubeStringFaces)
   }
-  function equivalentMovement(movement) {
+  equivalentMovement = movement => {
     var returnValue = ""
     switch (movement) {
       case "U":
@@ -150,7 +150,7 @@ angular.module('starter.controllers', [])
     }
     return returnValue
   }
-  $scope.$watch('Global.cubeSpeed', function() {
+  $scope.$watch('Global.cubeSpeed', () => {
     cubeGL.twistDuration = $scope.Global.cubeSpeed
   }, true)
 })
