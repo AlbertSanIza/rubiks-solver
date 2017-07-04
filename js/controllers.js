@@ -10,6 +10,9 @@ angular.module('starter.controllers', [])
       Cube.initSolver()
     }, 1000)
   })
+  $ionicModal.fromTemplateUrl('modal/settings.html', {scope: $scope, animation: 'slide-in-up'}).then(modal => {
+    $scope.settingsModal = modal
+  })
   init = () => {
     cubeJS = new Cube()
     var useLockedControls = true, controls = useLockedControls ? ERNO.Locked : ERNO.Freeform
@@ -25,6 +28,9 @@ angular.module('starter.controllers', [])
     })
   }
   init()
+  $scope.settings = () => {
+    $scope.settingsModal.show()
+  }
   $scope.shuffle = () => {
     $scope.solutionJS = ""
     cubeGL.shuffle(10)
@@ -41,15 +47,6 @@ angular.module('starter.controllers', [])
       $scope.solutionGL = solutionGL
       cubeGL.twist(solutionGL)
     }
-  }
-  $ionicModal.fromTemplateUrl('modal/settings.html', {scope: $scope, animation: 'slide-in-up'}).then(modal => {
-    $scope.settingsModal = modal
-  })
-  $scope.openSettingsModal = () => {
-    $scope.settingsModal.show()
-  }
-  $scope.closeSettingsModal = () => {
-    $scope.settingsModal.hide()
   }
   updateCubeJS = () => {
     var read = [8, 7, 6, 5, 4, 3, 2, 1, 0]
