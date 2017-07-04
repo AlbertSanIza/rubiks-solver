@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
 //-----------------------------------------------------------------------------
 .controller('mainCtrl', function($scope, $timeout, $ionicModal, $ionicLoading) {
   $scope.Global = new Object()
-  $scope.Global.cubeSpeed = 150
+  $scope.Global.cubeSpeed = 0
   var cubeJS, solutionJS, cubeGL, cubeContainer
   $ionicLoading.show({template: 'Loading...', duration: 6000}).then(() => {
     $timeout(() => {
