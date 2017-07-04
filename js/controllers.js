@@ -20,6 +20,9 @@ angular.module('starter.controllers', [])
     })
     cubeContainer = document.getElementById('container')
     cubeContainer.appendChild(cubeGL.domElement)
+    cubeGL.addEventListener("onTwistComplete", () => {
+      updateCubeJS()
+    })
   }
   init()
   $scope.shuffle = () => {
@@ -28,7 +31,6 @@ angular.module('starter.controllers', [])
   }
   $scope.solve = () => {
     if (!cubeGL.isSolved()) {
-      updateCubeJS()
       var solutionJS = cubeJS.solve()
       $scope.solutionJS = solutionJS
       solutionJS = solutionJS.split(" ")
