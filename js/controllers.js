@@ -48,6 +48,8 @@ angular.module('starter.controllers', [])
       cubeGL.twist(solutionGL)
     }
   }
+  $scope.run = () => {
+  }
   updateCubeJS = () => {
     var read = [8, 7, 6, 5, 4, 3, 2, 1, 0]
     var cubeStringColor = ""
