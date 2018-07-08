@@ -1,2 +1,1 @@
-Rubiks Solver
-by: Albert Sanchez
+#Rubiks Solver
